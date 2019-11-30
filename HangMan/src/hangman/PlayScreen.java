@@ -14,14 +14,26 @@ public class PlayScreen extends javax.swing.JPanel {
     /**
      * Creates new form PlayScreen
      */
-    MenuScreen obj;
+    MenuScreen obj; Hangman ob; String updatedWord; Trie2 tri;
+    public PlayScreen(){
+        initComponents();
+    }
     public PlayScreen(String p1, String p2, String p3, String p4) {
         initComponents();
        P1.setText(p1);
        P2.setText(p2);
        P3.setText(p3);
        P4.setText(p4);
+       ob = new Hangman();
+       ob.userGuess();
+       disWord.setText(ob.getDistinguishedWord());
+       jTextField1.setText(ob.getDistinguishedWord().charAt(0) + "");
+        int len = ob.getSecretWord().length();
+        jLabel1.setText(jLabel1.getText() + " " + (len - 1));
+         updatedWord = ob.getSecretWord().charAt(0) +"";
+         tempLabel.setText(tempLabel.getText() + ob.getSecretWord());
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +53,14 @@ public class PlayScreen extends javax.swing.JPanel {
         Count3 = new javax.swing.JLabel();
         Count4 = new javax.swing.JLabel();
         P5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        disWord = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tempLabel = new javax.swing.JLabel();
 
         P1.setText("jLabel1");
 
@@ -58,7 +78,30 @@ public class PlayScreen extends javax.swing.JPanel {
 
         Count4.setText("0");
 
-        P5.setText("jLabel1");
+        P5.setText("Player 1 name");
+
+        jLabel1.setText("The first letter is given to you.The number of alphabets u have to guessed to get the word are : ");
+
+        disWord.setText("disWord");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Check");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("...");
+
+        jLabel4.setText("Guess the word, character by character, in order.");
+
+        tempLabel.setText("secret word: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,47 +110,124 @@ public class PlayScreen extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(P1)
-                            .addComponent(P2)
-                            .addComponent(P3)
-                            .addComponent(P4))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Count4)
-                            .addComponent(Count3)
-                            .addComponent(Count2)
-                            .addComponent(Count1)))
+                        .addGap(370, 370, 370)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
-                        .addComponent(P5)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(P1)
+                        .addGap(33, 33, 33)
+                        .addComponent(Count1)
+                        .addGap(29, 29, 29)
+                        .addComponent(P2)
+                        .addGap(33, 33, 33)
+                        .addComponent(Count2)
+                        .addGap(34, 34, 34)
+                        .addComponent(P3)
+                        .addGap(33, 33, 33)
+                        .addComponent(Count3)
+                        .addGap(37, 37, 37)
+                        .addComponent(P4)
+                        .addGap(33, 33, 33)
+                        .addComponent(Count4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(459, 459, 459)
+                        .addComponent(P5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(349, 349, 349)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(488, 488, 488)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(478, 478, 478)
+                        .addComponent(disWord, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(426, 426, 426)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(477, 477, 477)
+                        .addComponent(jButton1)))
+                .addContainerGap(397, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(tempLabel)
+                .addGap(112, 112, 112))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P1)
-                    .addComponent(Count1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P2)
-                    .addComponent(Count2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P3)
-                    .addComponent(Count3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(P4)
-                    .addComponent(Count4))
-                .addGap(18, 18, 18)
-                .addComponent(P5)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(P1)
+                            .addComponent(Count1)
+                            .addComponent(P2)
+                            .addComponent(Count2)
+                            .addComponent(P3)
+                            .addComponent(Count3)
+                            .addComponent(P4)
+                            .addComponent(Count4))
+                        .addGap(32, 32, 32)
+                        .addComponent(tempLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(P5)
+                        .addGap(64, 64, 64)
+                        .addComponent(jLabel1)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel4)
+                        .addGap(65, 65, 65))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 295, Short.MAX_VALUE)
+                        .addComponent(disWord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(41, 41, 41)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jButton1)
+                .addGap(97, 97, 97))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+        jTextField1.setText("");
+        jLabel3.setText("Guess the next character in order:");
+     // int len = ob.getSecretWord().length();
+       
+      //  Scanner sc = new Scanner(System.in);
+      
+            
+            char ch = jTextField1.getText().charAt(0);
+            updatedWord += java.lang.Character.toLowerCase(ch);
+            disWord.setText(updatedWord);
+           // System.out.println("The updated word is " + updatedWord);
+           boolean doesMatch;
+        if (updatedWord.length() == ob.getSecretWord().length()){
+         doesMatch = tri.checkGuessedWord(ob.getSecretWord(), updatedWord);
+         if (doesMatch){
+             this.hide();
+         Result cong = new Result("matched", ob.getSecretWord());
+         cong.setVisible(true);}
+         else{
+         this.hide();
+         Result lose = new Result("not matched", ob.getSecretWord());
+         lose.setVisible(true);
+         
+         
+         }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -120,6 +240,14 @@ public class PlayScreen extends javax.swing.JPanel {
     private javax.swing.JLabel P3;
     private javax.swing.JLabel P4;
     private javax.swing.JLabel P5;
+    private javax.swing.JLabel disWord;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel tempLabel;
     // End of variables declaration//GEN-END:variables
 
 

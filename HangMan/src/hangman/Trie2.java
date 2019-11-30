@@ -114,11 +114,11 @@ class Trie2
         }
         current.isEnd = false;
     }
-    public void checkGuessedWord(String OriginalWord, String UserGuessedWord)
+    public boolean checkGuessedWord(String OriginalWord, String UserGuessedWord)
     {
         if(UserGuessedWord.equals(OriginalWord))
         {
-            System.out.println("CONGRATULATIONS!!! You have guessed the word correctly");
+          return true; // System.out.println("CONGRATULATIONS!!! You have guessed the word correctly");
         }
         else{
         TrieNode cur = root;
@@ -127,16 +127,16 @@ class Trie2
             {
                 if (cur.subNode(ch) == null)
                     break;
-//                    System.out.println("you have guessed it incorrectly. The word was "+ OriginalWord + " TRY AGAIN!!");
+//                    System.out.println("you have guessed it incorrectly. The word was "+ OriginalWord + " TRY AGAIN!!"); //Nebsie commented this out
                 else
                 cur = cur.subNode(ch);
             }
             if(cur.isEnd == true)
             {
-                System.out.println("you have guessed it right.");
+               return true;// System.out.println("you have guessed it right.");
             }
             else
-                System.out.println("you have guessed it incorrectly. The word was "+ OriginalWord + " TRY AGAIN!!");
+               return false;// System.out.println("you have guessed it incorrectly. The word was "+ OriginalWord + " TRY AGAIN!!");
         }
         
     }
@@ -145,7 +145,7 @@ class Trie2
          String strLine = "";
         try
         {
-         FileInputStream fstream = new FileInputStream("C:\\Users\\Dell\\Desktop\\Data Structures Material by Miss Qurat\\Assignment_4\\ShuffledDict.txt");   
+         FileInputStream fstream = new FileInputStream("C:\\Users\\Samima\\Downloads\\ShuffledDict.txt");   
          DataInputStream in = new DataInputStream(fstream);
          BufferedReader br = new BufferedReader(new InputStreamReader(in));
          
@@ -187,7 +187,7 @@ class Trie2
        ArrayList<String> words = new ArrayList<>();
         try
         {
-         FileInputStream fstream = new FileInputStream("C:\\Users\\Dell\\Desktop\\Data Structures Material by Miss Qurat\\Assignment_4\\ShuffledDict.txt");   
+         FileInputStream fstream = new FileInputStream("C:\\Users\\Samima\\Downloads\\ShuffledDict.txt");   
          DataInputStream in = new DataInputStream(fstream);
          BufferedReader br = new BufferedReader(new InputStreamReader(in));
          int i = 0;

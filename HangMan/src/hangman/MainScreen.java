@@ -29,6 +29,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        TrialPlay = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,19 +42,29 @@ public class MainScreen extends javax.swing.JFrame {
 
         jLabel1.setText("Game");
 
+        TrialPlay.setText("TrialPlay");
+        TrialPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrialPlayActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addContainerGap(193, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addGap(138, 138, 138))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(156, 156, 156))))
+                        .addGap(156, 156, 156))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(TrialPlay)
+                        .addGap(126, 126, 126))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -62,7 +73,9 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(101, 101, 101))
+                .addGap(33, 33, 33)
+                .addComponent(TrialPlay)
+                .addGap(45, 45, 45))
         );
 
         pack();
@@ -72,6 +85,12 @@ public class MainScreen extends javax.swing.JFrame {
         MenuScreen m = new MenuScreen();
         m.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TrialPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrialPlayActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new Second_Level().setVisible(true);
+    }//GEN-LAST:event_TrialPlayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,6 +128,7 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton TrialPlay;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

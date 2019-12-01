@@ -65,6 +65,12 @@ public class MenuScreen extends javax.swing.JFrame {
             }
         });
 
+        Player4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Player4ActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Start Game");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,13 +133,14 @@ public class MenuScreen extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         LinkyListo LOL = new LinkyListo();
         String player1 = Player1.getText();
-        /*if (!player1.equals(""))*/ LOL.insert(player1, 0);
+        if (Player1.getText().isEmpty()) player1 = " "; LOL.insert(player1, 0);
         String player2 = Player2.getText();
-        /*if (!player2.equals(""))*/ LOL.insert(player2, 0);
+        System.out.print(player2);
+        if (Player2.getText().isEmpty()) player2 = " "; LOL.insert(player2, 0);
         String player3 = Player3.getText();
-        /*if (!player3.equals(""))*/ LOL.insert(player3, 0);
+        if (Player3.getText().isEmpty()) player3 = " "; LOL.insert(player3, 0);
         String player4 = Player4.getText();
-        /*if (!player4.equals(""))*/ LOL.insert(player4, 0);
+        if (Player4.getText().isEmpty()) player4 = " "; LOL.insert(player4, 0);
        // PlayScreen p1 = new PlayScreen(player1, player2, player3, player4);
         //p1.setVisible(true);
         PScreen p1 = new PScreen(player1, player2, player3, player4);
@@ -152,6 +159,10 @@ public class MenuScreen extends javax.swing.JFrame {
     private void Player3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Player3ActionPerformed
+
+    private void Player4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Player4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Player4ActionPerformed
 
     /**
      * @param args the command line arguments

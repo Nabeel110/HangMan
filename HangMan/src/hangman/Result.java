@@ -99,6 +99,13 @@ public class Result extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         curr = curr.next;
+        if (curr.name.equals(" ")|| curr.name.length() < 2)
+        {
+            while(!curr.name.equals(" ") || curr.name.length() >= 2)
+            {
+                curr = curr.next;
+            }
+        }
         LinkyListo LOL = new LinkyListo();
         String[] arr = LOL.Players(head);
         new PScreen(arr[0], arr[1], arr[2], arr[3]).setVisible(true);

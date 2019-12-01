@@ -43,7 +43,7 @@ public class LinkyListo
         else
         {
             Node temp = root.next;
-            while (temp.next != head)
+            while (temp != root)
             {
                 if (temp.name.equals(name))
                 {

@@ -5,6 +5,9 @@
  */
 package hangman;
 
+import static hangman.LinkyListo.curr;
+import static hangman.LinkyListo.head;
+
 /**
  *
  * @author Samima
@@ -18,7 +21,8 @@ public class Result extends javax.swing.JFrame {
         initComponents();
         if (str.equals("matched")){
         resultSentence.setText("Congratulations! You have guessed the word correctly!");
-        earned.setText(earned.getText() + "1 point");}
+        earned.setText(earned.getText() + "1 point");
+        curr.score++;}
         else{
            resultSentence.setText("you have guessed it incorrectly. The word was " + originalWord);  
            earned.setText(earned.getText() + "0 points");}
@@ -49,6 +53,11 @@ public class Result extends javax.swing.JFrame {
         earned.setText("You have earned: ");
 
         jButton1.setText("Give turn to next player");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,6 +95,15 @@ public class Result extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        curr = curr.next;
+        LinkyListo LOL = new LinkyListo();
+        String[] arr = LOL.Players(head);
+        new PScreen(arr[0], arr[1], arr[2], arr[3]).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

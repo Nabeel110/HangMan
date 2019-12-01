@@ -5,6 +5,10 @@
  */
 package hangman;
 
+import static hangman.LinkyListo.curr;
+import static hangman.LinkyListo.head;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Samima
@@ -20,17 +24,28 @@ public class PScreen extends javax.swing.JFrame {
     }
 public PScreen(String p1, String p2, String p3, String p4) {
     initComponents();
+    LinkyListo LOL = new LinkyListo();
        P1.setText(p1);
+       S1.setText(LOL.findScore(p1, head) + "");
+       //if (!p1.equals("")) LOL.insert(p1, 0);
        P2.setText(p2);
+       S1.setText(LOL.findScore(p2, head) + "");
+       //if (!p2.equals("")) LOL.insert(p2, 0);
        P3.setText(p3);
+       S1.setText(LOL.findScore(p3, head) + "");
+       //if (!p3.equals("")) LOL.insert(p3, 0);
        P4.setText(p4);
-       P1name.setText(p1);
+       S1.setText(LOL.findScore(p4, head) + "");
+       //if (!p4.equals("")) LOL.insert(p4, 0);
+      // LOL.Print();
+       P1name.setText(curr.name);
+      // tempLabel.setVisible(false);
        ob = new Hangman();
       // ob.userGuess();
        disWord.setText(ob.getDistinguishedWord());
        //jTextField1.setText(ob.getDistinguishedWord().charAt(0) + "");
         int len = ob.getSecretWord().length();
-        jLabel11.setText("The first letter is given to you.The number of alphabets u have to guessed to get the word are : " + (len - 1));
+        jLabel11.setText("The first letter is given to you. The number of alphabets u have to guess to get the word are : " + (len - 1));
          updatedWord = ob.getSecretWord().charAt(0) +"";
          tempLabel.setText(tempLabel.getText() + ob.getSecretWord());
     
@@ -46,13 +61,13 @@ public PScreen(String p1, String p2, String p3, String p4) {
     private void initComponents() {
 
         P1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        S1 = new javax.swing.JLabel();
         P2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        S2 = new javax.swing.JLabel();
         P3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        S3 = new javax.swing.JLabel();
         P4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        S4 = new javax.swing.JLabel();
         tempLabel = new javax.swing.JLabel();
         P1name = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -66,19 +81,19 @@ public PScreen(String p1, String p2, String p3, String p4) {
 
         P1.setText("jLabel1");
 
-        jLabel2.setText("0");
+        S1.setText("0");
 
         P2.setText("jLabel3");
 
-        jLabel4.setText("0");
+        S2.setText("0");
 
         P3.setText("jLabel5");
 
-        jLabel6.setText("0");
+        S3.setText("0");
 
         P4.setText("jLabel7");
 
-        jLabel8.setText("0");
+        S4.setText("0");
 
         tempLabel.setText("secret word:");
 
@@ -91,6 +106,12 @@ public PScreen(String p1, String p2, String p3, String p4) {
         disWord.setText("disWord");
 
         jLabel14.setText(".");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("check");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -118,34 +139,34 @@ public PScreen(String p1, String p2, String p3, String p4) {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(P1)
                                 .addGap(28, 28, 28)
-                                .addComponent(jLabel2)
+                                .addComponent(S1)
                                 .addGap(45, 45, 45)
                                 .addComponent(P2)
                                 .addGap(29, 29, 29)
-                                .addComponent(jLabel4)
+                                .addComponent(S2)
                                 .addGap(30, 30, 30)
                                 .addComponent(P3)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(P1name)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
+                                        .addComponent(S3)
                                         .addGap(34, 34, 34)
                                         .addComponent(P4)))))
                         .addGap(22, 22, 22)
-                        .addComponent(jLabel8))
+                        .addComponent(S4))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(324, 324, 324)
                         .addComponent(jLabel12))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(439, 439, 439)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
                             .addComponent(disWord)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(307, 307, 307)
-                        .addComponent(jLabel14)))
+                        .addComponent(jLabel14))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap(250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,13 +175,13 @@ public PScreen(String p1, String p2, String p3, String p4) {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(P1)
-                    .addComponent(jLabel2)
+                    .addComponent(S1)
                     .addComponent(P2)
-                    .addComponent(jLabel4)
+                    .addComponent(S2)
                     .addComponent(P3)
-                    .addComponent(jLabel6)
+                    .addComponent(S3)
                     .addComponent(P4)
-                    .addComponent(jLabel8))
+                    .addComponent(S4))
                 .addGap(37, 37, 37)
                 .addComponent(tempLabel)
                 .addGap(39, 39, 39)
@@ -184,7 +205,19 @@ public PScreen(String p1, String p2, String p3, String p4) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        char ch = jTextField1.getText().charAt(0);
+        char ch = 0;
+               try
+               {
+                   ch = jTextField1.getText().charAt(0);
+               }
+               catch (StringIndexOutOfBoundsException e)
+               {
+                   JOptionPane.showMessageDialog(rootPane, "Empty input is not acceptable.");
+                   //System.exit(0);
+               }
+        if (ch == 0) JOptionPane.showMessageDialog(rootPane, "Please enter a character.");
+        else
+        {
         jTextField1.setText("");
         jLabel14.setText("Guess the next character in order:");
      // int len = ob.getSecretWord().length();
@@ -200,14 +233,20 @@ public PScreen(String p1, String p2, String p3, String p4) {
                                                    
          doesMatch = ob.checkGuessedWord( updatedWord);
          if (doesMatch){
-             this.hide();
+             //this.hide();
          Result cong = new Result("matched", ob.getSecretWord());
-         cong.setVisible(true);}
+         cong.setVisible(true);
+         this.dispose();}
          else{
-         this.hide();
+         //this.hide();
          Result lose = new Result("not matched", ob.getSecretWord());
-         lose.setVisible(true);}}
+         lose.setVisible(true);
+         this.dispose();}}}
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,15 +289,15 @@ public PScreen(String p1, String p2, String p3, String p4) {
     private javax.swing.JLabel P2;
     private javax.swing.JLabel P3;
     private javax.swing.JLabel P4;
+    private javax.swing.JLabel S1;
+    private javax.swing.JLabel S2;
+    private javax.swing.JLabel S3;
+    private javax.swing.JLabel S4;
     private javax.swing.JLabel disWord;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel tempLabel;
     // End of variables declaration//GEN-END:variables

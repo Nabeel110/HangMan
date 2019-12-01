@@ -25,6 +25,7 @@ public class Second_Level extends javax.swing.JFrame {
     boolean[] Kapil = new boolean[x];
     public Second_Level() {
         initComponents();
+        go.setVisible(false);
     }
 
     /**
@@ -56,7 +57,7 @@ public class Second_Level extends javax.swing.JFrame {
 
         jLabel1.setText("Enter the character that you want to add:");
 
-        jLabel2.setText("Enterthe position for the character mentioned:");
+        jLabel2.setText("Enter the position for the character mentioned:");
 
         go.setText("Register input?");
         go.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +97,7 @@ public class Second_Level extends javax.swing.JFrame {
                     .addComponent(user_sees_this_label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(init)
@@ -186,10 +187,14 @@ public class Second_Level extends javax.swing.JFrame {
             if (disp.equals(word4user))
             {
                 JOptionPane.showMessageDialog(rootPane, "Congratulations! Your placement was on spot!");
+                this.dispose();
+                new MainScreen().setVisible(true);
             }
             else
             {
                 JOptionPane.showMessageDialog(rootPane, "Sadly, the word you assembled does not match the actual word. The actual word was " + word4user);
+                this.dispose();
+                new MainScreen().setVisible(true);
             }
         }
         else count = 0;
@@ -208,8 +213,9 @@ public class Second_Level extends javax.swing.JFrame {
     private void initActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_initActionPerformed
         // TODO add your handling code here:
         init.setVisible(false);
-        user_sees_this_label.setText("The word is: " + word4user.charAt(0));
+        user_sees_this_label.setText("The first letter of the word is: " + word4user.charAt(0));
         len.setText("The length of the word: " + x);
+        go.setVisible(true);
     }//GEN-LAST:event_initActionPerformed
 
     /**

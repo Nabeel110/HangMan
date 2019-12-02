@@ -13,6 +13,7 @@ public class LinkyListo
 {
     static Node head;
     static Node curr;
+     boolean visit;
     public void insert(String name, int score)
     {
         Node n = new Node(name, score);

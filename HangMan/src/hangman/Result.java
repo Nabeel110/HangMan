@@ -41,77 +41,95 @@ public class Result extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        resultSentence = new javax.swing.JLabel();
-        earned = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        earned = new javax.swing.JLabel();
+        resultSentence = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 360, -1, -1));
 
-        resultSentence.setText("Result sentence");
+        jPanel2.setLayout(null);
 
-        earned.setText("You have earned: ");
-
+        jButton1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
         jButton1.setText("Give turn to next player");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(360, 540, 270, 40);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(resultSentence))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(286, 286, 286)
-                        .addComponent(earned))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(296, 296, 296)
-                        .addComponent(jButton1)))
-                .addContainerGap(310, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(resultSentence)
-                .addGap(29, 29, 29)
-                .addComponent(earned)
-                .addGap(111, 111, 111)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(238, Short.MAX_VALUE))
-        );
+        earned.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        earned.setText("You have earned: ");
+        jPanel2.add(earned);
+        earned.setBounds(360, 400, 270, 50);
+
+        resultSentence.setFont(new java.awt.Font("Calibri", 1, 60)); // NOI18N
+        resultSentence.setText("Result sentence");
+        jPanel2.add(resultSentence);
+        resultSentence.setBounds(300, 290, 420, 60);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Samima\\Desktop\\menuscreen-01.png")); // NOI18N
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(10, 20, 980, 730);
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 990, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+   
+        
         curr = curr.next;
-        if (curr.name.equals(" ")|| curr.name.length() < 2)
-        {
-            while(!curr.name.equals(" ") || curr.name.length() >= 2)
-            {
-                curr = curr.next;
-            }
-        }
-        LinkyListo LOL = new LinkyListo();
+        System.out.println(curr.name);
+
+        
+       
+          
+      if (curr.name.equals(" ")|| curr.name.length() < 2)
+       {
+           while(!curr.name.equals(" ") || curr.name.length() >= 2)            {
+               curr = curr.next;
+           }
+        } 
+      LinkyListo LOL = new LinkyListo();
         String[] arr = LOL.Players(head);
-        new PScreen(arr[0], arr[1], arr[2], arr[3]).setVisible(true);
-        this.setVisible(false);
+        if (curr.next == head) {
+        WhoWon ww = new WhoWon(arr);
+        ww.setVisible(true);// then end the game
+         
+        }
+        else{
+         new PScreen(arr[0], arr[1], arr[2], arr[3]).setVisible(true);
+        
+        }
+        this.setVisible(false); 
+        
+        
+     
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -151,7 +169,10 @@ public class Result extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel earned;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel resultSentence;
     // End of variables declaration//GEN-END:variables
 }

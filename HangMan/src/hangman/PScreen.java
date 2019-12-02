@@ -61,6 +61,7 @@ public PScreen(String p1, String p2, String p3, String p4) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         P1 = new javax.swing.JLabel();
         S1 = new javax.swing.JLabel();
         P2 = new javax.swing.JLabel();
@@ -68,7 +69,6 @@ public PScreen(String p1, String p2, String p3, String p4) {
         P3 = new javax.swing.JLabel();
         S3 = new javax.swing.JLabel();
         P4 = new javax.swing.JLabel();
-        S4 = new javax.swing.JLabel();
         tempLabel = new javax.swing.JLabel();
         P1name = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -77,8 +77,10 @@ public PScreen(String p1, String p2, String p3, String p4) {
         jLabel14 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        S4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
         P1.setText("jLabel1");
 
@@ -93,8 +95,6 @@ public PScreen(String p1, String p2, String p3, String p4) {
         S3.setText("0");
 
         P4.setText("jLabel7");
-
-        S4.setText("0");
 
         tempLabel.setText("secret word:");
 
@@ -121,68 +121,70 @@ public PScreen(String p1, String p2, String p3, String p4) {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+        S4.setText("0");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(P1)
+                        .addGap(28, 28, 28)
+                        .addComponent(S1)
+                        .addGap(45, 45, 45)
+                        .addComponent(P2)
+                        .addGap(29, 29, 29)
+                        .addComponent(S2)
+                        .addGap(30, 30, 30)
+                        .addComponent(P3)
+                        .addGap(18, 18, 18)
+                        .addComponent(S3)
                         .addGap(34, 34, 34)
-                        .addComponent(jLabel11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(127, 127, 127)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(tempLabel)
-                                .addGap(58, 58, 58))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(P1)
-                                .addGap(28, 28, 28)
-                                .addComponent(S1)
-                                .addGap(45, 45, 45)
-                                .addComponent(P2)
-                                .addGap(29, 29, 29)
-                                .addComponent(S2)
-                                .addGap(30, 30, 30)
-                                .addComponent(P3)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(P1name)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(S3)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(P4)))))
-                        .addGap(22, 22, 22)
+                        .addComponent(P4)
+                        .addGap(33, 33, 33)
                         .addComponent(S4))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(324, 324, 324)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(369, 369, 369)
+                        .addComponent(tempLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(414, 414, 414)
+                        .addComponent(P1name))
+                    .addComponent(jLabel11)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(290, 290, 290)
                         .addComponent(jLabel12))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(disWord)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(disWord))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(273, 273, 273)
                         .addComponent(jLabel14))
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(250, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(392, 392, 392)
+                        .addComponent(jButton1)))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(P1)
                     .addComponent(S1)
                     .addComponent(P2)
                     .addComponent(S2)
                     .addComponent(P3)
                     .addComponent(S3)
-                    .addComponent(P4)
-                    .addComponent(S4))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(P4)
+                        .addComponent(S4)))
                 .addGap(37, 37, 37)
                 .addComponent(tempLabel)
                 .addGap(39, 39, 39)
@@ -197,10 +199,13 @@ public PScreen(String p1, String p2, String p3, String p4) {
                 .addComponent(jLabel14)
                 .addGap(35, 35, 35)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
+                .addGap(44, 44, 44)
                 .addComponent(jButton1)
-                .addContainerGap(129, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 860, 600);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,6 +304,7 @@ public PScreen(String p1, String p2, String p3, String p4) {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel tempLabel;
     // End of variables declaration//GEN-END:variables

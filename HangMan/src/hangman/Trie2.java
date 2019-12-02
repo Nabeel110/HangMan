@@ -145,7 +145,7 @@ class Trie2
          String strLine = "";
         try
         {
-         FileInputStream fstream = new FileInputStream("C:\\Users\\hp\\Desktop\\DS Project\\Hangman-Project\\HangMan\\src\\hangman\\ShuffledDict.txt");   
+         FileInputStream fstream = new FileInputStream("C:\\Users\\Samima\\Downloads\\ShuffledDict.txt");   
          DataInputStream in = new DataInputStream(fstream);
          BufferedReader br = new BufferedReader(new InputStreamReader(in));
          
@@ -187,7 +187,7 @@ class Trie2
        ArrayList<String> words = new ArrayList<>();
         try
         {
-         FileInputStream fstream = new FileInputStream("C:\\Users\\hp\\Desktop\\DS Project\\Hangman-Project\\HangMan\\src\\hangman\\ShuffledDict.txt");   
+         FileInputStream fstream = new FileInputStream("C:\\Users\\Samima\\Downloads\\ShuffledDict.txt");   
          DataInputStream in = new DataInputStream(fstream);
          BufferedReader br = new BufferedReader(new InputStreamReader(in));
          int i = 0;
